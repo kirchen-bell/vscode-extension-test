@@ -17,7 +17,8 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('test string', {}, "aaa", "pro")
+		console.log('helloWorld')
+		vscode.window.showInformationMessage('test string', {}, "aaa", "pro", "noob")
 			.then((sel) => {
 				vscode.window.showErrorMessage(sel || 'null', {modal: true})
 			});
@@ -25,16 +26,23 @@ export function activate(context: vscode.ExtensionContext) {
 			"pick1",
 			"aria",
 			"music"
-		])
+		]);
 	});
 	context.subscriptions.push(disposable);
 
 	let newcmd = vscode.commands.registerCommand('extensiontest.youNoob', () => {
 		vscode.window.showInputBox().then((inp) => {
-			vscode.window.showInformationMessage(inp || "none")
-		})
-	})
-	context.subscriptions.push(newcmd)
+			console.log('younoob');
+			if (inp === undefined) {
+				console.log('break youNoob');
+				return;
+			}
+			vscode.window.showInformationMessage(inp || "none");
+			vscode.commands.executeCommand('extensiontest.youNoob');
+		});
+	});
+	context.subscriptions.push(newcmd);
+
 }
 
 // this method is called when your extension is deactivated

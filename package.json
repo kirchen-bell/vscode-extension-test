@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extensiontest.helloWorld"
+		"onCommand:extensiontest.helloWorld",
+		"onCommand:extensiontest.youNoob"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
